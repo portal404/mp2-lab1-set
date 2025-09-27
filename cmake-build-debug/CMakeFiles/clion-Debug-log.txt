@@ -1,0 +1,10 @@
+"Z:\Programs\CLion 2024.2.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=Z:/Programs/CLion 2024.2.3/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\portal\Documents\Repos\mp2-lab1-set -B C:\Users\portal\Documents\Repos\mp2-lab1-set\cmake-build-debug
+-- 
+-- General configuration for set
+-- ======================================
+-- 
+--    Configuration: Debug
+-- 
+-- Configuring done (1.6s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/Users/portal/Documents/Repos/mp2-lab1-set/cmake-build-debug

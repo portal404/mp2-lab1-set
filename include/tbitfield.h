@@ -2,7 +2,8 @@
 //
 // tbitfield.h - Copyright (c) Гергель В.П. 07.05.2001
 //   Переработано для Microsoft Visual Studio 2008 Сысоевым А.В. (19.04.2015)
-//
+// Сделано страданиями Сипайло М.В.
+// Отборнейший брейнрот
 // Битовое поле
 
 #ifndef __BITFIELD_H__
@@ -17,31 +18,35 @@ typedef unsigned int TELEM;
 class TBitField
 {
 private:
-  int  BitLen; // длина битового поля - макс. к-во битов
+  int bitLen; // длина битового поля - макс. к-во битов
   TELEM *pMem; // память для представления битового поля
-  int  MemLen; // к-во эл-тов Мем для представления бит.поля
+  int memLen; // к-во эл-тов Мем для представления бит.поля
 
   // методы реализации
-  int   GetMemIndex(const int n) const; // индекс в pМем для бита n       (#О2)
-  TELEM GetMemMask (const int n) const; // битовая маска для бита n       (#О3)
+  int GetMemIndex(const int n) const; // индекс в pМем для бита n       (#О2)
+  TELEM GetMemMask(const int n) const; // битовая маска для бита n       (#О3)
 public:
   TBitField(int len);                //                                   (#О1)
-  TBitField(const TBitField &bf);    //                                   (#П1)
-  ~TBitField();                      //                                    (#С)
+  TBitField(TBitField &bf);    //                                   (#П1)
+  ~TBitField();
+
+  TBitField();
+
+  TBitField(int bitLen_, TELEM *pMem_, int memLen_);
 
   // доступ к битам
   int GetLength(void) const;      // получить длину (к-во битов)           (#О)
   void SetBit(const int n);       // установить бит                       (#О4)
   void ClrBit(const int n);       // очистить бит                         (#П2)
-  int  GetBit(const int n) const; // получить значение бита               (#Л1)
+  int GetBit(const int n) const; // получить значение бита               (#Л1)
 
   // битовые операции
   int operator==(const TBitField &bf) const; // сравнение                 (#О5)
   int operator!=(const TBitField &bf) const; // сравнение
-  TBitField& operator=(const TBitField &bf); // присваивание              (#П3)
-  TBitField  operator|(const TBitField &bf); // операция "или"            (#О6)
-  TBitField  operator&(const TBitField &bf); // операция "и"              (#Л2)
-  TBitField  operator~(void);                // отрицание                  (#С)
+  TBitField &operator=(const TBitField &bf); // присваивание              (#П3)
+  TBitField operator|(const TBitField &bf); // операция "или"            (#О6)
+  TBitField operator&(const TBitField &bf); // операция "и"              (#Л2)
+  TBitField operator~(void);                // отрицание                  (#С)
 
   friend istream &operator>>(istream &istr, TBitField &bf);       //      (#О7)
   friend ostream &operator<<(ostream &ostr, const TBitField &bf); //      (#П4)

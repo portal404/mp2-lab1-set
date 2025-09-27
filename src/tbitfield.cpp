@@ -30,7 +30,7 @@ TBitField::TBitField(int len)
 
 TBitField::~TBitField()
 {
-  if (pMem)
+  if (pMem != nullptr)
   {
     delete[] pMem;
     pMem = nullptr;
@@ -46,7 +46,8 @@ TBitField::TBitField(TBitField &bf)
     bitLen = bf.bitLen;
     memLen = bf.memLen;
     pMem = new TELEM[memLen];
-    for (int i = 0; i < memLen; i++) pMem[i] = bf.pMem[i];
+    for (int i = 0; i < memLen; i++)
+      pMem[i] = bf.pMem[i];
   } else
   {
     bitLen = 0;
@@ -104,7 +105,8 @@ TBitField &TBitField::operator=(const TBitField &bf) // присваивание
   memLen = bf.memLen;
   pMem = new TELEM[memLen];
   int i = 0;
-  for (; i < memLen; ++i) pMem[i] = bf.pMem[i];
+  for (; i < memLen; ++i)
+    pMem[i] = bf.pMem[i];
   return *this;
 }
 

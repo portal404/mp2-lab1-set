@@ -11,7 +11,7 @@ private:
 public:
   TSet(int mp);
   TSet(TSet &s);       // конструктор копирования
-  TSet(const TBitField &bf); // конструктор преобразования типа
+  TSet(TBitField &bf); // конструктор преобразования типа
   operator TBitField();      // преобразование типа к битовому полю
   // доступ к битам
   int GetMaxPower(void) const;     // максимальная мощность множества

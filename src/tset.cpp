@@ -20,12 +20,12 @@ TSet::TSet(int mp) : bitField(mp)
 
 // конструктор копирования
 
-TSet::TSet(TSet &s) : bitField(s.bitField)
+TSet::TSet(TSet &s) : bitField(s.bitField), maxPower(s.maxPower)
 {
 }
 
 // конструктор преобразования типа
-TSet::TSet(const TBitField &bf) : bitField(-1)
+TSet::TSet(TBitField &bf) : bitField(bf), maxPower(bf.GetLength())
 {
 }
 
